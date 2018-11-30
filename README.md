@@ -17,6 +17,12 @@ Two containers, C1 and C2, are created and launched through the following comman
 * lxc-start -n C2
 
 Running command *sudo lxc-ls -f* yields now the following output.
+
+| NAME | STATE   | AUTOSTART | GROUPS | IPV4       | IPV6 |
+|------|---------|-----------|--------|------------|------|
+| C1   | RUNNING | 0         | -      | 10.0.3.171 | -    |
+| C2   | RUNNING | 0         | -      | 10.0.3.195 | -    |
+
   NAME  STATE   AUTOSTART GROUPS  IPV4        IPV6
   C1    RUNNING 0         -       10.0.3.171  -
   C2    RUNNING 0         -       10.0.3.195  -
