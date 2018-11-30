@@ -3,5 +3,7 @@ Repository containing a solution for the LEO1 portfolio assignment 2.
 
 
 ## Solution procedure:
-1. First part
-2. Second part
+
+### Enable bridged networking
+
+### Second part
