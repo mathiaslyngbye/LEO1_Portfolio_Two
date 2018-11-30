@@ -49,4 +49,7 @@ File *rng.sh* is served through the following the command.
 In order to make the container C1 publicly accessible, the following command is executed (10.0.3.171 being the IP adress of container C1).
 * iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport 80 -j DNAT --to-destination 10.0.3.171:80
 
+### Result
+The webserver is now accessible through the Rapberry Pi's IP address. The webserver contains a 4-by-4 matrix of pseudo-random numbers.
+
 
