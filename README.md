@@ -25,7 +25,8 @@ Running command *sudo lxc-ls -f* yields now the following output.
   
 
 ### Installing and starting lighttpd webserver in the first container
-Container C1 is accessed through command *lxc-attach -n C1*. Within container C1, package list is updated and required packages are installed through the following commands.
+Container C1 is accessed through command *lxc-attach -n C1*. 
+Within container C1, package list is updated and required packages are installed through the following commands.
 * apk update
 * apk add lighttpd php5 php5-cgi php5-curl php5-fpm
 
@@ -38,6 +39,11 @@ The lighttpd service is started thorugh the following command.
 
 In folder */var/www/localhost/htdocs/*, file *index.php* (included in repository) is configured.
 
+### Installing the randomness service into the second container
+Container C2 is accessed through command *lxc-attach -n C2*. Within folder */bin/* the file *rng.sh* (included in repository) is created and configured.
+
+File *rng.sh* is served through the following the command.
+* socat -v -v tcp-listen:8080,fork,reuseaddr exec:/bin/rng.sh
 
 ### Route host port to a container
 In order to make the container C1 publicly accessible, the following command is executed (10.0.3.171 being the IP adress of container C1).
