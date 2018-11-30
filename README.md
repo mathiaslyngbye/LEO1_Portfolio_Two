@@ -22,14 +22,12 @@ Running command *sudo lxc-ls -f* yields now the following output.
 |------|---------|-----------|--------|------------|------|
 | C1   | RUNNING | 0         | -      | 10.0.3.171 | -    |
 | C2   | RUNNING | 0         | -      | 10.0.3.195 | -    |
-
-  NAME  STATE   AUTOSTART GROUPS  IPV4        IPV6
-  C1    RUNNING 0         -       10.0.3.171  -
-  C2    RUNNING 0         -       10.0.3.195  -
   
 
 ### Installing and starting lighttpd webserver in the first container
-
+Container C1 is accessed through command *sudo lxc-attach -n C1*. Within container C1, package list is updated and required packages are installed through the following commands.
+* lxc-attach -n C1 -- apk update
+* lxc-attach -n C1 -- apk add lighttpd php5 php5-cgi php5-curl php5-fpm
 
 
 
