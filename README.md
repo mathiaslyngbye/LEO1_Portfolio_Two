@@ -25,12 +25,18 @@ Running command *sudo lxc-ls -f* yields now the following output.
   
 
 ### Installing and starting lighttpd webserver in the first container
-Container C1 is accessed through command *sudo lxc-attach -n C1*. Within container C1, package list is updated and required packages are installed through the following commands.
-* lxc-attach -n C1 -- apk update
-* lxc-attach -n C1 -- apk add lighttpd php5 php5-cgi php5-curl php5-fpm
+Container C1 is accessed through command *lxc-attach -n C1*. Within container C1, package list is updated and required packages are installed through the following commands.
+* apk update
+* apk add lighttpd php5 php5-cgi php5-curl php5-fpm
 
+In file */etc/lighttpd/lighttpd.conf*, the following line is uncommented.
+* include "mod_fastcgi.conf"
 
+The lighttpd service is started thorugh the following command.
+* rc-update add lighttpd default
+* openrc
 
+In folder */var/www/localhost/htdocs/*, file *index.php* (included in repository) is configured.
 
 
 ### Route host port to a container
